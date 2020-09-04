@@ -1,6 +1,17 @@
 from django.db import models
 
 # Create your models here.
+# 회원
+class Member(models.Models):
+    member_id = models.AutoField(primary_key = True)
+    member_email = models.CharField(max_length = 30)
+    member_pwd = models.CharField(max_length = 20)
+    member_nick= models.CharField(max_length = 15)
+    member_op = models.BooleanField(default = False)
+    member_ban = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.member_nick
 
 class Prefer(models.Model):
     prefer_id = models.AutoField(primary_key=True) # PK
