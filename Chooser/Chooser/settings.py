@@ -33,14 +33,27 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account',
+
+    # 개발중인 앱
+    'main',
     'debate',
     'mood',
     'prefer',
+
+    #소셜로그인
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # provider - 소셜로그인 제공업체
+    'allauth.socialaccount.providers.google',#구글
+    'allauth.socialaccount.providers.naver',#네이버
 ]
 
 MIDDLEWARE = [
@@ -122,3 +135,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 소셜로그인 관련
+AUTHENCATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of 'allauth'
+    'django.contrb.auth.backends.ModelBackend',
+
+    # 'allauth' specific authentication methods, such as login by e-mail
+    'all.account.auth_backends.AuthenticationBackend',
+)
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
+# 소셜로그인 기타 설정
