@@ -1,13 +1,12 @@
 from django import forms
-from .models import Prefer
+from main.models import Prefer
 
-class Prefer(forms.PreferForm):
+class PreferForm(forms.ModelForm):
     # Meta의 의미를 모르겠군여
     class Meta:
         models = Prefer
         fields = ('prefer_title', 'prefer_content')
     
-    # *args, **kwargs 의미는 까먹었지만 적었습니다
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['prefer_title'].label = "제목"
