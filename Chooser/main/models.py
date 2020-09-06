@@ -15,20 +15,25 @@ class Member(models.Model):
 
 
 # 취향 페이지
-class Prefer(models.Model):
-    prefer_id = models.AutoField(primary_key=True) # PK
-    prefer_topic = models.ForeignKey(topic_id, on_delete=models.CASCADE) # FK
-    prefer_member_id = models.ForeignKey(member_id, on_delete=models.CASCADE) # FK
-    prefer_title = models.CharField(max_length=50)
-    prefer_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
-    prefer_content = models.TextField()
-    prefer_file = # models.FileField()
 
 class Topic(models.Model):
     topic_id = models.AutoField(primary_key=True)# PK
     topic_content = models.TextField()
-    topic_start_date = # 예약설정이 가능할까?
-    topic_end_date = # 예약설정이 가능할까?
+    # topic_start_date = #  예약설정이 가능할까?
+    # topic_end_date =  # 예약설정이 가능할까?
+
+
+
+class Prefer(models.Model):
+    prefer_id = models.AutoField(primary_key=True) # PK
+    prefer_topic = models.ForeignKey(Topic, on_delete=models.CASCADE) # FK
+    prefer_member_id = models.ForeignKey(Member, on_delete=models.CASCADE) # FK
+    prefer_title = models.CharField(max_length=50)
+    prefer_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
+    prefer_content = models.TextField()
+    # prefer_file = # models.FileField()
+
+
 
 class Comment_prefer(models.Model):
     com_pre_id = models.AutoField(primary_key=True) # PK
@@ -56,7 +61,7 @@ class Vote(models.model):
     vote_id = models.AutoField(primary_key=Auto) # PK
     vote_member_id = models.ForeignKey(member_id, on_delete=models.CASCADE)# FK(member_id)
     vote_debate_id = models.ForeignKey(debate_id, on_delete=models.CASCADE)# FK(debate_id)
-    vote_result = # BooleanField(참거짓)으로 구분할 수 있을까? 언제든지 취소 수정 가능?
+  # vote_result = # BooleanField(참거짓)으로 구분할 수 있을까? 언제든지 취소 수정 가능?
 
 
 
