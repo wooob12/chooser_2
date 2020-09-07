@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +25,16 @@
     <!-- 목록 -->
     <p>목록입니당</p>
 
+    <div class="make_prefer_index"></div>
+
     <!-- 버튼 -->
-    <button>글쓰기</button>
+    <div class="make_prefer">
+        <a href="{% url 'prefer_create' %}">
+        <div class="plus_btn">
+            <button>글쓰기</button>
+        </div>
+        </a>
+    </div>
 
     <!-- 페이지네이션 -->
     <p>페이지네이션입니다</p>

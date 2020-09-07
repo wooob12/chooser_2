@@ -133,7 +133,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# static
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    Path(BASE_DIR, 'static', 'static')
+]
+STATIC_ROOT = Path(BASE_DIR, 'static')
+# Static File 모을 디렉토리
 
 # 소셜로그인 관련
 AUTHENCATION_BACKENDS = (
