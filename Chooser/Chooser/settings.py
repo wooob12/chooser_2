@@ -39,21 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 개발중인 앱
-    'main',
+    # 개발 중인 앱
+    'main.apps.MainConfig',
     'debate',
     'mood',
     'prefer',
 
-    #소셜로그인
-    # allauth
+    #소셜로그인 관련
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
 
-    # provider - 소셜로그인 제공업체
-    'allauth.socialaccount.providers.google',#구글
-    'allauth.socialaccount.providers.naver',#네이버
+    #provider
+    'allauth.socialaccount.providers.google',# Google
+    'allauth.socialaccount.providers.naver',#Naver
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,9 @@
-from django.urls import path
+from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    # path('', home.html, name = 'home')
+    path('', views.home , name = 'home'),
+
+    #소셜로그인 관련
+    path('accounts/', include('allauth.urls')),
 ]

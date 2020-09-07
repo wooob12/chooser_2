@@ -1,13 +1,21 @@
-{% load socialaccount %}
-{% providers_media_js %}
-<h1>hell</h1>
+<!-- 메인페이지 -->
+<!DOCTYPE html>
+<html lang="en">
 
-<a href="/accounts/signup">회원가입</a><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOOSER</title>
+</head>
 
-{% if user.is_authenticated %}
-<a href="/accounts/logout">로그아웃</a><br>
-{{user.username}} 님이 로그인 중
-{% else %}
-<a href="{% provider_logoin_url 'google' %}">구글로그인</a><br>
-로그인 해야됨
-{% endif %}
+<body>
+    <div class="menu">
+        <div class="menu_content"><a href="">토론</a></div>
+        <div class="menu_content"><a href="">취향소개</a></div>
+        <div class="menu_content"><a href="">토론</a></div>
+        <div class="menu_content"><a href="">토론</a></div>
+        <div class="menu_content"><a href="">마이페이지</a></div>
+    </div>
+</body>
+
+</html>
