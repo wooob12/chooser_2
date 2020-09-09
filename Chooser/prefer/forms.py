@@ -2,9 +2,10 @@ from django import forms
 from main.models import Prefer
 
 class PreferForm(forms.ModelForm):
-    # Meta의 의미를 모르겠군여
+    # Meta의 의미를 모르겠군여 
+    # ㅋㅋㅋ그냥 형식 같은 거예요!. 저렇게 써야지만 장고가 이해함.
     class Meta:
-        models = Prefer
+        model = Prefer
         fields = ('prefer_title', 'prefer_content')
     
     def __init__(self, *args, **kwargs):

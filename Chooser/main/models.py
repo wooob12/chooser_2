@@ -62,7 +62,7 @@ class Vote(models.Model):
     vote_member_id = models.ForeignKey(Member, on_delete=models.CASCADE)# FK(member_id)
     vote_debate_id = models.ForeignKey(Debate, on_delete=models.CASCADE)# FK(debate_id)
     vote_result_1 = models.IntegerField()# BooleanField(참거짓)으로 구분할 수 있을까? 언제든지 취소 수정 가능?
-    vote_result_2 = models.IntegerField()
+    vote_result_2 = models.IntegerField()# BooleanField는 Ture, False로 구분 되며 변경 가능합니다.
 
 
 
