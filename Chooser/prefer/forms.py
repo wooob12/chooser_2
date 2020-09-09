@@ -4,7 +4,7 @@ from main.models import Prefer
 class PreferForm(forms.ModelForm):
     # Meta의 의미를 모르겠군여
     class Meta:
-        models = Prefer
+        model = Prefer
         fields = ('prefer_title', 'prefer_content')
     
     def __init__(self, *args, **kwargs):

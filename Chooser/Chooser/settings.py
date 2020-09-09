@@ -142,6 +142,10 @@ STATICFILES_DIRS = [
 STATIC_ROOT = Path(BASE_DIR, 'static')
 # Static File 모을 디렉토리
 
+# media 추가
+MEDIA_ROOT = Path(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # 소셜로그인 관련
 AUTHENCATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of 'allauth'

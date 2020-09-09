@@ -1,5 +1,8 @@
 from django.contrib import admin
 from django.urls import include,path
+# Media
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,4 +14,7 @@ urlpatterns = [
     
     # 소셜로그인
     path('accounts/', include('allauth.urls')),
-]
+
+    # MEDIA 추가
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    
