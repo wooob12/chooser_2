@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN</title>
+</head>
+<body>
+    <h2>JOIN</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ member_form.as_p }}
+        <input class="submit" type="submit" value="확인">
+    </form>
+</body>
+</html>
