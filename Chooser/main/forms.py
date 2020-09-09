@@ -11,4 +11,4 @@ class MemberForm(forms.ModelForm):
         
         self.fields['member_email'].label = "EMAIL"
         self.fields['member_pwd'].label = "PASSWARD"
-        self.fields['member_nick'].laber = "NICKNAME"
+        self.fields['member_nick'].label = "NICKNAME"
