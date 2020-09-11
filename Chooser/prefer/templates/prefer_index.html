@@ -41,9 +41,9 @@
             <h4 class="card-title">작성자</h4>
             <p class="card-text">취향은 머야머야</p>
           </div>
-          <div class="card-footer">
-            <a href="{% url 'prefer_detail' %}" class="btn btn-primary">자세히 보기!</a>
-          </div>
+          {% comment %} <div class="card-footer">
+            <a href="{% url 'prefer_detail' prefer.id %}" class="btn btn-primary">자세히 보기!</a>
+          </div> {% endcomment %}
         </div>
       </div>
 
