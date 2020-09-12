@@ -6,22 +6,22 @@ class UserManager(BaseUserManager):
     
     use_in_migrations = True    
     
-    def create_user(self, email, nickname, password=None):        
+    def create_user(self, email, username, password=None):        
         
         if not email :            
             raise ValueError('must have user email')        
         user = self.model(            
             email = self.normalize_email(email),            
-            nickname = nickname        
+            username = username        
         )        
         user.set_password(password)        
         user.save(using=self._db)        
         return user     
-    def create_superuser(self, email, nickname,password ):        
+    def create_superuser(self, email, username,password ):        
        
         user = self.create_user(            
             email = self.normalize_email(email),            
-            nickname = nickname,            
+            username = username,            
             password=password        
         )        
         user.is_admin = True        
@@ -37,7 +37,7 @@ class User(AbstractBaseUser,PermissionsMixin):
         max_length=255,        
         unique=True,    
     )    
-    nickname = models.CharField(
+    username = models.CharField(
         max_length=20,
         null=False,
         unique=True
@@ -49,7 +49,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     is_staff = models.BooleanField(default=False)     
     date_joined = models.DateTimeField(auto_now_add=True)     
     USERNAME_FIELD = 'email'    
-    REQUIRED_FIELDS = ['nickname']
+    REQUIRED_FIELDS = ['username']
 
 
 # 취향 페이지

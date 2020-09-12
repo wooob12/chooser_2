@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.sites',
+    'django.contrib.sites', #소셜로그인
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -158,6 +158,18 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 # 소셜로그인 기타 설정
+# SOCIAL_AUTH_PIPELINE = (
+#     'social.pipeline.social_auth.social_details',
+#     'social.pipeline.social_auth.social_uid',
+#     'social.pipeline.social_auth.auth_allowed',
+#     'social.pipeline.social_auth.social_user',
+#     'social.pipeline.user.get_username',
+#     # 'social.pipeline.user.create_user', <- 기존에 존재하는 함수를 없앰
+#     'main.social.create_user', # 새로 만든 create_user
+#     'social.pipeline.social_auth.associate_user',
+#     'social.pipeline.social_auth.load_extra_data',
+#     'social.pipeline.user.user_details'
+# )
 
 #custom user model
 AUTH_USER_MODEL = 'main.User'
