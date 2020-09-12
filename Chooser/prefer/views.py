@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.core.paginator import Paginator
 from .forms import PreferForm
-from main.models import Member, Topic, Prefer, Comment_prefer
+from main.models import User, Topic, Prefer, Comment_prefer
 # Cremainate yosur views herer
 # Create your views here
 

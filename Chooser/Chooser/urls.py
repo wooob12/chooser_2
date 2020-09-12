@@ -10,14 +10,9 @@ urlpatterns = [
 
     # 취향소개
     path('prefer/', include('prefer.urls')),
-<<<<<<< HEAD
-    # 토론                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    # path('debate/', include('debate.urls')),
-=======
 
     # 토론
     path('debate/', include('debate.urls')),
->>>>>>> dev
     
     # 소셜로그인
     path('accounts/', include('allauth.urls')),

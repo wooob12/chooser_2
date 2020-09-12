@@ -3,7 +3,7 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.core.paginator import Paginator
-from main.models import Member, Debate, Comment_debate, Vote
+from main.models import User, Debate, Comment_debate, Vote
 # Create your views here.
 
 def debate_index(request):
