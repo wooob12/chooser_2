@@ -135,11 +135,16 @@ USE_TZ = True
 
 # static
 STATIC_URL = '/static/'
+# Static File들이 들어있는 경로
 STATICFILES_DIRS = [
-    Path(BASE_DIR, 'static', 'static')
+    Path(BASE_DIR, 'Chooser', 'static')
 ]
-STATIC_ROOT = Path(BASE_DIR, 'static')
 # Static File 모을 디렉토리
+STATIC_ROOT = Path(BASE_DIR, 'static')
+
+# media 추가
+MEDIA_ROOT = Path(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # 소셜로그인 관련
 AUTHENCATION_BACKENDS = (

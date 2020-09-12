@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +22,17 @@
     
     <!-- 목록 -->
     <p>목록입니당</p>
+
+
+    {% comment %} 버튼 {% endcomment %}
+
+    <div class="make_debate">
+        <a href="{% url 'debate_create' %}">
+        <div class="plus_btn">
+            <button>글쓰기</button>
+        </div>
+        </a>
+    </div>
     
     <!-- 페이지네이션 -->
     <p>페이지네이션입니다</p>
