@@ -11,6 +11,20 @@
     <title>LOGIN</title>
 </head>
 <body>
-    
+        {{ form }}
+        <input class="submit" type="submit" value="확인">
+    </form> -->
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control" id="email" placeholder="EMAIL">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="PASSWORD">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 </body>
 </html>

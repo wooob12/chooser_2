@@ -153,3 +153,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 # 소셜로그인 기타 설정
+
+#custom user model
+AUTH_USER_MODEL = 'main.User'
