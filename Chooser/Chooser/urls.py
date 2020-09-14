@@ -16,6 +16,7 @@ urlpatterns = [
     
     # 소셜로그인
     path('accounts/', include('allauth.urls')),
+    path('join/', include('accounts.urls')),
 
     # MEDIA 추가
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
