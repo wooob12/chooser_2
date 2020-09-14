@@ -17,6 +17,9 @@ urlpatterns = [
     # 소셜로그인
     path('accounts/', include('allauth.urls')),
 
+    # 기분
+    path('mood/', include('mood.urls'),)
+
     # MEDIA 추가
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
     
