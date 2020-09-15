@@ -2,11 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # 회원
-class Member(models.Model):
-    member_id = models.AutoField(primary_key = True)
-    member_email = models.EmailField(unique=True, null = True)
-    member_nickname = models.ForeignKey(User, on_delete=models.CASCADE)
-    member_ban = models.BooleanField(default=False)
+# User 모델 사용
 
 # 취향 페이지
 class Topic(models.Model):
