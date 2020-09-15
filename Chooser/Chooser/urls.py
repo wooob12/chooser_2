@@ -16,6 +16,7 @@ urlpatterns = [
     
     # 소셜로그인
     path('accounts/', include('allauth.urls')),
+    path('join/', include('accounts.urls')),
 
     # 기분
     path('mood/', include('mood.urls'),)

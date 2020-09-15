@@ -1,11 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import User
+from django.contrib.auth.models import User
 
 class JoinForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('email', 'nickname',)
+        fields = ('email', 'username',)
     
     def clean_password2(self):
         # Check that the two password entries match
