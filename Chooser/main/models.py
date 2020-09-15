@@ -64,12 +64,12 @@ class Topic(models.Model):
 
 class Prefer(models.Model):
     prefer_id = models.AutoField(primary_key=True) # PK
-    #prefer_topic = models.ForeignKey(Topic, on_delete=models.CASCADE) # FK
-    #prefer_member_id = models.ForeignKey(Member, on_delete=models.CASCADE) # FK
+    # prefer_topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    prefer_member_id = models.ForeignKey(User, on_delete=models.CASCADE)
     prefer_title = models.CharField(max_length=50)
     prefer_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
     prefer_content = models.TextField()
-   # prefer_file = # models.FileField()
+    # prefer_file =  models.FileField()
 
 
 
@@ -92,7 +92,7 @@ class Debate(models.Model):
 class Comment_debate(models.Model):
     com_deb_id = models.AutoField(primary_key=True) # PK
     com_deb_member_id = models.ForeignKey(User, on_delete=models.CASCADE) # FK(member_id)
-    #com_deb_result = models.CharField
+    com_deb_result = models.CharField
     com_deb_content = models.ForeignKey(Debate, on_delete=models.CASCADE) # FK(debate_id)
     con_deb_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
 
