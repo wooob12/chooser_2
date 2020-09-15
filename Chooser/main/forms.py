@@ -1,11 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import User
+from django.contrib.auth.models import User
 
 class JoinForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('email', 'nickname',)
+        fields = ('email', 'username',)
     
     def clean_password2(self):
         # Check that the two password entries match
@@ -27,22 +27,3 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['email', 'password']
-    # email = forms.CharField(
-    #     max_length=30,
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             'class': 'form-control',
-    #             'placeholder': 'nickname',
-    #             'required': 'True',
-    #         }
-    #     )
-    # )
-    # password = forms.CharField(
-    #     widget=forms.PasswordInput(
-    #         attrs={
-    #             'class': 'form-control',
-    #             'placeholder': 'PASSWORD',
-    #             'required': 'True',
-    #         }
-    #     )
-    # )

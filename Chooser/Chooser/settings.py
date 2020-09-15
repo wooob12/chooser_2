@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.sites',
+    'django.contrib.sites', #소셜로그인
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'debate',
     'mood',
     'prefer',
+    'accounts',
 
     #소셜로그인 관련
     'allauth',
@@ -156,8 +157,3 @@ AUTHENCATION_BACKENDS = (
 )
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-
-# 소셜로그인 기타 설정
-
-#custom user model
-AUTH_USER_MODEL = 'main.User'

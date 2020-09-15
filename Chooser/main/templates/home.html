@@ -1,3 +1,5 @@
+{% load socialaccount %}
+{% providers_media_js %}
 <!-- 메인페이지 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +19,18 @@
     안녕하세요! {{ user }}님!
     <!-- 로그인이 되지 않은 경우 -->
     {% else %}
-    <a href="{% url 'join' %}">
+    <a href="{% url 'signup' %}">
         <button>회원가입</button>
     </a>
 
     <a href="{% url 'login' %}">
         <button>로그인</button>
+    </a>
+    <a href=" {% provider_login_url 'google' %}">
+        <button>구글 로그인</button>
+    </a>
+    <a href=" {% provider_login_url 'naver' %}">
+        <button>네이버 로그인</button>
     </a>
     {% endif %}
 
