@@ -2,8 +2,9 @@ var currentTitle = document.getElementById('current-year-month');
 var calendarBody = document.getElementById('calendar-body');
 var today = new Date();
 var first = new Date(today.getFullYear(), today.getMonth(),1);
-var dayList = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-var monthList = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var dayList = ['일','월','화','수','목','금','토'];
+var monthList = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+var mymonthList= ['01','02','03','04','05','06','07','08','09','10','11','12'];
 var leapYear=[31,29,31,30,31,30,31,31,30,31,30,31];
 var notLeapYear=[31,28,31,30,31,30,31,31,30,31,30,31];
 var pageFirst = first;
@@ -14,17 +15,70 @@ if(first.getFullYear() % 4 === 0){
     pageYear = notLeapYear;
 }
 
+//alert(serializerMood[1]['fields']['mood_date'])
+// 1. 선택한 date 가져와서 변수에 저장하기. -> keyValue
+// 2. keyValue 형식을 파악해 ("2020-02-03", 20-2-3,2020 2 3, 20 1월 31 월....)
+// 3. mood_date 형식: "2020-09-15T13:59:20.072Z"
+// 4. 비교 전략
+// 5. mood_date.substring(자바스크립트 부분문자열 검색)
+// 6. 비교 (밑에서)
+// for (key in serializerMood) {
+//   if (serializerMood[key]['fields']['mood_date'] == selectDate) {
+//     // 7. json파일들을 너가 원하는거 참조해서 가져오기
+//     // 8. 옆에 출력 (innerHtml)
+
+//     break;
+//   }
+// }
+// for (key in serializerMood) {
+//       if (serializerMood[key]['fields']['mood_date'].substr(0,10) == keyValue) {
+//          // 7. json파일들을 너가 원하는거 참조해서 가져오기
+//          // 8. 옆에 출력 (innerHtml)
+//          alert(serializerMood[0]['fields']['mood_date'])
+    
+//          break;
+//        }
+//      }
+// alert(serializerMood[0]['fields']['mood_date'].substr(0,10))
+mymonth = 0
+if (today.getMonth() == 0) {
+    mymonth = '01'
+} else if (today.getMonth() == 1) {
+    mymonth = '02'
+} else if (today.getMonth() == 2) {
+    mymonth = '03'
+} else if (today.getMonth() == 3) {
+    mymonth = '04'
+} else if (today.getMonth() == 4) {
+    mymonth = '05'
+} else if (today.getMonth() == 5) {
+    mymonth = '06'
+} else if (today.getMonth() == 6) {
+    mymonth = '07'
+} else if (today.getMonth() == 7) {
+    mymonth = '08'
+} else if (today.getMonth() == 8) {
+    mymonth = '09'
+} else if (today.getMonth() == 9) {
+    mymonth = '10'
+} else if (today.getMonth() == 10) {
+    mymonth = '11'
+} else if (today.getMonth() == 11) {
+    mymonth = '12'
+} 
+
+
 function showCalendar(){
     let monthCnt = 100;
     let cnt = 1;
-    for(var i = 0; i < 6; i++){
+    for (var i = 0; i < 6; i++){
         var $tr = document.createElement('tr');
         $tr.setAttribute('id', monthCnt);   
-        for(var j = 0; j < 7; j++){
-            if((i === 0 && j < first.getDay()) || cnt > pageYear[first.getMonth()]){
+        for (var j = 0; j < 7; j++){
+            if ((i === 0 && j < first.getDay()) || cnt > pageYear[first.getMonth()]){
                 var $td = document.createElement('td');
                 $tr.appendChild($td);     
-            }else{
+            } else {
                 var $td = document.createElement('td');
                 $td.textContent = cnt;
                 $td.setAttribute('id', cnt);                
@@ -34,9 +88,12 @@ function showCalendar(){
         }
         monthCnt++;
         calendarBody.appendChild($tr);
+        currentTitle.innerHTML = monthList[first.getMonth()] + '&nbsp;&nbsp;&nbsp;&nbsp;'+ first.getFullYear();
     }
 }
+
 showCalendar();
+
 
 function removeCalendar(){
     let catchTr = 100;
@@ -46,6 +103,8 @@ function removeCalendar(){
         catchTr++;
     }
 }
+
+var inputBox = document.getElementById('prev');
 
 function prev(){
   inputBox.value = "";
@@ -73,11 +132,11 @@ function prev(){
   currentTitle.innerHTML = monthList[first.getMonth()] + '&nbsp;&nbsp;&nbsp;&nbsp;'+ first.getFullYear();
   removeCalendar();
   showCalendar();
-  showMain();
+//   showMain();
   clickedDate1 = document.getElementById(today.getDate());
   clickedDate1.classList.add('active');
   clickStart();
-  reshowingList();
+  
 }
 
 function next(){
@@ -106,17 +165,21 @@ function next(){
   currentTitle.innerHTML = monthList[first.getMonth()] + '&nbsp;&nbsp;&nbsp;&nbsp;'+ first.getFullYear();
   removeCalendar();
   showCalendar(); 
-  showMain();
+//   showMain();
   clickedDate1 = document.getElementById(today.getDate());
   clickedDate1.classList.add('active');  
   clickStart();
-  reshowingList();
 }
+var MoodVal = document.getElementById('mood_val');
+var MoodName = document.getElementById('mood_name');
+var MoodContent = document.getElementById('mood_content');
 
-function showMain(){
-  today.innerHTML = dayList[today.getDay()];
-  today.innerHTML = today.getDate();
-}
+// function showMain(){
+//   mainTodayDay.innerHTML = dayList[today.getDay()];
+//   mainTodayDate.innerHTML = today.getDate();
+// }
+// showMain();
+
 var clickedDate1 = document.getElementById(today.getDate());
 clickedDate1.classList.add('active');
 var prevBtn = document.getElementById('prev');
@@ -130,6 +193,7 @@ function clickStart(){
       tdGroup[i].addEventListener('click',changeToday);
   }
 }
+
 function changeToday(e){
   for(let i = 1; i <= pageYear[first.getMonth()]; i++){
       if(tdGroup[i].classList.contains('active')){
@@ -139,99 +203,134 @@ function changeToday(e){
   clickedDate1 = e.currentTarget;
   clickedDate1.classList.add('active');
   today = new Date(today.getFullYear(), today.getMonth(), clickedDate1.id);
-  showMain();
-  keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
-  reshowingList();
-}
-function reshowingList(){
-  keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
-  if(todoList[keyValue] === undefined){
-      inputList.textContent = '';
-      todoList[keyValue] = [];
-      const $divs = document.querySelectorAll('#input-list > div');
-      $divs.forEach(function(e){
-        e.remove();
-      });
-      const $btns = document.querySelectorAll('#input-list > button');
-      $btns.forEach(function(e1){
-        e1.remove();
-      });
-  }else if(todoList[keyValue].length ===0){
-      inputList.textContent = "";
-      const $divs = document.querySelectorAll('#input-list > div');
-      $divs.forEach(function(e){
-        e.remove();
-      });
-      const $btns = document.querySelectorAll('#input-list > button');
-      $btns.forEach(function(e1){
-        e1.remove();
-      });
-  }else{
-      const $divs = document.querySelectorAll('#input-list > div');
-      $divs.forEach(function(e){
-        e.remove();
-      });
-      const $btns = document.querySelectorAll('#input-list > button');
-      $btns.forEach(function(e1){
-        e1.remove();
-      });
-      var $div = document.createElement('div');
-      for(var i = 0; i < todoList[keyValue].length; i++){
-          var $div = document.createElement('div');
-          $div.textContent = '-' + todoList[keyValue][i];
-          var $btn = document.createElement('button');
-          $btn.setAttribute('type', 'button'); 
-          $btn.setAttribute('id', 'del-ata');
-          $btn.setAttribute('id', dataCnt+keyValue);
-          $btn.setAttribute('class', 'del-data');
-          $btn.textContent = delText;
-          inputList.appendChild($div);
-          inputList.appendChild($btn);
-          $div.addEventListener('click',checkList);
-          $btn.addEventListener('click',deleteTodo);
-          inputBox.value = '';
-          function deleteTodo(){
-              $div.remove();
-              $btn.remove();
-          }
-      }
-  }
+//   showMain();
+  keyValue = today.getFullYear() + '-' + mymonth+ '-' + today.getDate();
+  for (key in serializerMood) {
+        if (serializerMood[key]['fields']['mood_date'].substr(0,10) == keyValue) {
+           // 7. json파일들을 너가 원하는거 참조해서 가져오기
+           // 8. 옆에 출력 (innerHtml)
+        //    alert(serializerMood[key]['fields']['mood_content'])
+           MoodVal.innerHTML = serializerMood[key]['fields']['mood_val']
+           MoodName.innerHTML = serializerMood[key]['fields']['mood_state']
+           MoodContent.innerHTML = serializerMood[key]['fields']['mood_content']
+           break;
+         } else {
+            MoodVal.innerHTML = '이날은 없네...'
+            MoodName.innerHTML = '이날은 없네...'
+            MoodContent.innerHTML = '이날은 없네...'
+         }
+       }
+}//keyValue 가 날짜를 관장하는 부분
 
-}
-var inputBox = document.getElementById('input-box');
-var inputDate = document.getElementById('input-data');
-var inputList = document.getElementById('input-list');
-var delText = 'X';
-inputDate.addEventListener('click',addTodoList);
-var dataCnt = 1;
-var keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
-let todoList = [];
-todoList[keyValue] = [];
-function addTodoList(){
-  var $div = document.createElement('div');
-  $div.textContent = '-' + inputBox.value;
-  var $btn = document.createElement('button');
-  $btn.setAttribute('type', 'button'); 
-  $btn.setAttribute('id', 'del-ata');
-  $btn.setAttribute('id', dataCnt+keyValue);
-  $btn.setAttribute('class', "del-data");
-  $btn.textContent = delText;
-  inputList.appendChild($div);
-  inputList.appendChild($btn);
-  todoList[keyValue].push(inputBox.value);
-  dataCnt++;
-  inputBox.value = '';
-  $div.addEventListener('click',checkList);
-  $btn.addEventListener('click',deleteTodo);
-  function deleteTodo(){
-      $div.remove();
-      $btn.remove();
-  }
-}
-console.log(keyValue);
-function checkList(e){
-  e.currentTarget.classList.add('checked');
-}
+// function test() {
+//     if (clickedDate1.classList.add('active')){
+//     alert(serializerMood[0]['fields']['mood_date'].substr(0,10))}
+// }
+// test();
+// alert(serializerMood[0]['fields']['mood_date'].substr(0,10))
+// keyValue = today.getFullYear() + '-' + mymonth+ '-' + today.getDate();
+// function collect(){
+//     for (key in serializerMood) {
+//     if ((clickedDate1.classList.add('active')) && (serializerMood[key]['fields']['mood_date'].substr(0,10) == keyValue)) {
+//        // 7. json파일들을 너가 원하는거 참조해서 가져오기
+//        // 8. 옆에 출력 (innerHtml)
+//        alert(serializerMood[0]['fields']['mood_val'])
+  
+//        break;
+//      }
+//    }
+// }
+// collect();
+
+// function reshowingList(){
+//   keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
+//   if(todoList[keyValue] === undefined){
+//       inputList.textContent = '';
+//       todoList[keyValue] = [];
+//       const $divs = document.querySelectorAll('#input-list > div');
+//       $divs.forEach(function(e){
+//         e.remove();
+//       });
+//       const $btns = document.querySelectorAll('#input-list > button');
+//       $btns.forEach(function(e1){
+//         e1.remove();
+//       });
+//   }else if(todoList[keyValue].length ===0){
+//       inputList.textContent = "";
+//       const $divs = document.querySelectorAll('#input-list > div');
+//       $divs.forEach(function(e){
+//         e.remove();
+//       });
+//       const $btns = document.querySelectorAll('#input-list > button');
+//       $btns.forEach(function(e1){
+//         e1.remove();
+//       });
+//   }else{
+//       const $divs = document.querySelectorAll('#input-list > div');
+//       $divs.forEach(function(e){
+//         e.remove();
+//       });
+//       const $btns = document.querySelectorAll('#input-list > button');
+//       $btns.forEach(function(e1){
+//         e1.remove();
+//       });
+//       var $div = document.createElement('div');
+//       for(var i = 0; i < todoList[keyValue].length; i++){
+//           var $div = document.createElement('div');
+//           $div.textContent = '-' + todoList[keyValue][i];
+//           var $btn = document.createElement('button');
+//           $btn.setAttribute('type', 'button'); 
+//           $btn.setAttribute('id', 'del-ata');
+//           $btn.setAttribute('id', dataCnt+keyValue);
+//           $btn.setAttribute('class', 'del-data');
+//           $btn.textContent = delText;
+//           inputList.appendChild($div);
+//           inputList.appendChild($btn);
+//           $div.addEventListener('click',checkList);
+//           $btn.addEventListener('click',deleteTodo);
+//           inputBox.value = '';
+//           function deleteTodo(){
+//               $div.remove();
+//               $btn.remove();
+//           }
+//       }
+//   }
+
+// }
+// var inputBox = document.getElementById('input-box');
+// var inputDate = document.getElementById('input-data');
+// var inputList = document.getElementById('input-list');
+// var delText = 'X';
+// inputDate.addEventListener('click',addTodoList);
+// var dataCnt = 1;
+// var keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
+// let todoList = [];
+// todoList[keyValue] = [];
+// function addTodoList(){
+//   var $div = document.createElement('div');
+//   $div.textContent = '-' + inputBox.value;
+//   var $btn = document.createElement('button');
+//   $btn.setAttribute('type', 'button'); 
+//   $btn.setAttribute('id', 'del-ata');
+//   $btn.setAttribute('id', dataCnt+keyValue);
+//   $btn.setAttribute('class', "del-data");
+//   $btn.textContent = delText;
+//   inputList.appendChild($div);
+//   inputList.appendChild($btn);
+//   todoList[keyValue].push(inputBox.value);
+//   dataCnt++;
+//   inputBox.value = '';
+//   $div.addEventListener('click',checkList);
+//   $btn.addEventListener('click',deleteTodo);
+//   function deleteTodo(){
+//       $div.remove();
+//       $btn.remove();
+//   }
+// }
+// console.log(keyValue);
+// function checkList(e){
+//   e.currentTarget.classList.add('checked');
+// }
 
 // var today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
 // var date = new Date();//today의 Date를 세어주는 역할
@@ -255,7 +354,7 @@ function checkList(e){
 //     //이번 달의 첫째 날,
 //     //new를 쓰는 이유 : new를 쓰면 이번달의 로컬 월을 정확하게 받아온다.     
 //     //new를 쓰지 않았을때 이번달을 받아오려면 +1을 해줘야한다. 
-//     //왜냐면 getMonth()는 0~11을 반환하기 때문
+//     //왜냐면 getMonth()는 0~11을 반환하기 때문 
 //     var lastDate = new Date(today.getFullYear(),today.getMonth()+1,0);
 //     //이번 달의 마지막 날
 //     //new를 써주면 정확한 월을 가져옴, getMonth()+1을 해주면 다음달로 넘어가는데
