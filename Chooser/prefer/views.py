@@ -98,5 +98,65 @@ def prefer_delete_comment(request, prefer_id, com_pre_id):
 #     else:
 #         raise PermissionDenied
 
+# 수정버튼
+# def prefer_update_comment(request, prefer_id, com_pre_id):
+#     prefer_my_comment = Comment_prefer.objects.get(pk=com_pre_id)
+#     prefer_my_comment_form = CommentForm(instance=prefer_my_comment)
+#     if request.method == "POST":
+#         comment_updated_form = CommentForm(request.POST, instance=prefer_my_comment)
+#         if comment_updated_form.is_valid():
+#             comment_updated_form.request.user
+#             comment_updated_form.save()
+#             return redirect('prefer_detail', prefer_id)
+#         return render(request, 'prefer_detail.html', {'prefer_my_comment_form':prefer_my_comment_form})
+
+#     else:
+#         raise PermissionDenied
+
+# 수정버튼
+# def prefer_update_comment(request, prefer_id, com_pre_id):
+#     prefer_my_comment = Comment_prefer.objects.get(pk=com_pre_id)
+#     prefer_my_comment_form = CommentForm(instance=prefer_my_comment)
+#     if request.method == "POST":
+#         comment_updated_form = CommentForm(request.POST, instance=prefer_my_comment)
+#         if comment_updated_form.is_valid():
+#             comment_updated_form.request.user
+#             comment_updated_form.save()
+#             return redirect('prefer_detail', prefer_id)
+#         return render(request, 'prefer_detail.html', {'prefer_my_comment_form':prefer_my_comment_form})
+
+#     else:
+#         raise PermissionDenied
+
+# 수정버튼
+# def prefer_update_comment(request, prefer_id, com_pre_id):
+#     prefer_my_comment = Comment_prefer.objects.get(pk=com_pre_id)
+#     prefer_my_comment_form = CommentForm(instance=prefer_my_comment)
+#     if request.method == "POST":
+#         comment_updated_form = CommentForm(request.POST, instance=prefer_my_comment)
+#         if comment_updated_form.is_valid():
+#             comment_updated_form.request.user
+#             comment_updated_form.save()
+#             return redirect('prefer_detail', prefer_id)
+#         return render(request, 'prefer_detail.html', {'prefer_my_comment_form':prefer_my_comment_form})
+
+#     else:
+#         raise PermissionDenied
+
+# 수정버튼
+# def prefer_update_comment(request, prefer_id, com_pre_id):
+#     prefer_my_comment = Comment_prefer.objects.get(pk=com_pre_id)
+#     prefer_my_comment_form = CommentForm(instance=prefer_my_comment)
+#     if request.method == "POST":
+#         comment_updated_form = CommentForm(request.POST, instance=prefer_my_comment)
+#         if comment_updated_form.is_valid():
+#             comment_updated_form.request.user
+#             comment_updated_form.save()
+#             return redirect('prefer_detail', prefer_id)
+#         return render(request, 'prefer_detail.html', {'prefer_my_comment_form':prefer_my_comment_form})
+
+#     else:
+#         raise PermissionDenied
+
 
 

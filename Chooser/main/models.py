@@ -1,7 +1,7 @@
 from django.db import models 
 from django.contrib.auth.models import User
 # 페이지네이션
-# from django.core.paginator import Paginator
+from django.core.paginator import Paginator
 # 회원
 
 # 회원
