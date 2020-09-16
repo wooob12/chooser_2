@@ -4,6 +4,10 @@
 <form method="POST" action="{% url 'signup'%}">
 
     {% csrf_token %}
+    Email:
+    <br>
+    <input name="email" type="text" value="">
+    <br>
     Username:
     <br>
     <input name="username" type="text" value="">

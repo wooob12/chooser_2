@@ -21,15 +21,49 @@
     <br>
     {{my_prefer.prefer_date}}
     <br>
+
+    
+
     <button>좋아요</button>
-    {% comment %} <a href="{% url 'prefer_create' my_prefer.id %}"><button>수정</button></a> {% endcomment %}
-    {% comment %} <a href="{% url 'prefer_delete' my_prefer.id %}"><button>삭제</button></a>
-    <a href="{% url 'prefer_index' %}"><button>목록</button></a> {% endcomment %}
+    {% if user == my_prefer.prefer_member_id %}
+    <a href="{% url 'prefer_update' my_prefer.id %}"><button>수정</button></a>
+    <a href="{% url 'prefer_delete' my_prefer.id %}"><button>삭제</button></a>
+    {% endif%}
+
+    <!-- {% comment %} <a href="{% url 'prefer_create' my_prefer.id %}"><button>수정</button></a> {% endcomment %}
+    {% comment %} <a href="{% url 'prefer_delete' my_prefer.id %}"><button>삭제</button></a> {% endcomment %}
+    {% comment %} <a href="{% url 'prefer_index' %}"><button>목록</button></a> {% endcomment %} -->
 
     <!-- 댓글기능 -->
     <br>
-    <br>
+
+    {% if user.is_authenticatd %}
+    <form method="POST" action="{% url 'create_comment' my_prefer.id %}">
+    {% csrf_token %}
+    {{comment_form}}
+    <input type="submit" value="댓글달기!">
+    </form>
+    {% endif %}
+
+    {% for com_pre_comment in my_prefer.comment_set.all %}
+
+<p>
+    {{com_pre_comment.member_id}} 🤦‍♂️ {{com_pre_comment.content}}
+    {% if user == com_pre.member_id %}
+    <a href="{% url 'delete_comment' my_prefer.id comment.id %}">    
+        <button>삭제</button>
+    </a>
+    {% endif %}
+</p>
+
+{% endfor %}
+
+
+
+
+
+    {% comment %} <br>
     <textarea cols="50" rows="2" name="fulltext" placeholder="댓글을 입력하세요!"></textarea>
-    <button>댓글달기</button>
+    <button>댓글달기</button> {% endcomment %}
 </body>
 </html>
