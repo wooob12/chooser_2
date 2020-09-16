@@ -1,11 +1,8 @@
 from django.db import models 
 from django.contrib.auth.models import User
-<<<<<<< HEAD
 # 페이지네이션
-# from django.core.paginator import Paginator
+from django.core.paginator import Paginator
 # 회원
-=======
->>>>>>> dev
 
 # 회원
 # User 모델 사용
