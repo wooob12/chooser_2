@@ -1,11 +1,8 @@
 from django.db import models 
 from django.contrib.auth.models import User
-<<<<<<< HEAD
 # 페이지네이션
 # from django.core.paginator import Paginator
 # 회원
-=======
->>>>>>> dev
 
 # 회원
 # User 모델 사용
@@ -61,7 +58,13 @@ class Vote(models.Model):
     vote_result_2 = models.IntegerField()# BooleanField는 Ture, False로 구분 되며 변경 가능합니다.
 
 
-
+class Mood(models.Model):
+    mood_id = models.AutoField(primary_key=True) # PK
+    mood_val = models.CharField(max_length=10) # 기분수치
+    mood_state = models.CharField(max_length=50) # 기분 이름
+    mood_content = models.TextField() # 기분 내용
+    mood_date = models.DateTimeField(auto_now=True) # 기분 시간
+    mood_member_id=models.ForeignKey(User, on_delete=models.CASCADE) # FK(member_id)
 
 
 # author = models.ForeignKey(User, on_delete=models.CASCADE)
