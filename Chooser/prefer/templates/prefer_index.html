@@ -37,48 +37,6 @@
 
     {% endif %}
     
-    
-    
-    
-    <p>  <img src="{% static 'Img/Chooser_preview.png' %}">  </p>
-    <!-- 상단(로고, 주제) -->
-    <h1>케이크 맛있게 먹는 법!!</h1>
-
-    <!-- 정렬 -->
-    <select>
-        <option>랜덤 순</option>
-        <option>조회 높은 순</option>
-        <option>최신 순</option>
-        <option>오래된 순</option>
-    </select>
-
-    <!-- 인기목록 -->
-    <p>인기목록입니당</p>
-    
-    <!-- 목록 -->
-    <h4>목록</p>
-
-    {% for prefer in all_prefer %}
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="{% static 'Img/Chooser_preview.png' %}" alt="">
-          <div class="card-body">
-            <h4 class="card-title">{{prefer.prefer_member_id}}</h4>
-            <p class="card-text">{{prefer.prefer_title}}</p>
-            <p class="card-text">{{prefer.prefer_content}}</p>
-            <p class="card-text">{{prefer.prefer_date|date:"Y년 m월 d일"}}</p>
-          </div>
-          {% comment %} <div class="card-footer">
-            <a href="{% url 'prefer_detail' prefer.id %}" class="btn btn-primary">자세히 보기!</a>
-          </div> {% endcomment %}
-        </div>
-      </div>
-      {% endfor %}
-
-    <div class="make_prefer_index">
-    {% comment %} {{%  %}} {% endcomment %}
-    </div>
-
     <!-- 버튼 -->
     {% if user.is_authenticated %}
     <div class="make_prefer">
@@ -89,9 +47,74 @@
         </a>
     </div>
     {% endif %}
+    
+    
+    
+    <p>  <img src="{% static 'Img/Chooser_preview.png' %}">  </p>
+    <!-- 상단(로고, 주제) -->
+    <h1>케이크 맛있게 먹는 법!!</h1>
+
+    <!-- 정렬 -->
+    <!-- <select>
+        <option>랜덤 순</option>
+        <option>조회 높은 순</option>
+        <option>최신 순</option>
+        <option>오래된 순</option>
+    </select> -->
+
+    <!-- 인기목록 -->
+    <!-- <p>인기목록입니당</p> -->
+    
+    <!-- 목록 -->
+    <h4>목록</h4>
+
+    {% for prefer in posts %}
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static 'Img/Chooser_preview.png' %}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{prefer.prefer_member_id}}</h4>
+            <p class="card-text">{{prefer.prefer_title}}</p>
+            <p class="card-text">{{prefer.prefer_content}}</p>
+            <p class="card-text">{{prefer.prefer_date|date:"Y.m.d"}}</p>
+          </div>
+          <!-- 자세히보기 - NoReverseMatch 오류 -->
+          <div class="card-footer">
+            <a href="{% url 'prefer_detail' prefer.prefer_id %}">
+              <div class="btn btn-primary">
+                자세히 보기!
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    <div class="make_prefer_index">
+    {% comment %} {{%  %}} {% endcomment %}
+    </div>
 
     <!-- 페이지네이션 -->
-    <p>페이지네이션입니다</p>
+    <!-- https://imyeonn.github.io/blog/blog/142/ -->
+    <!-- 시간 남으면 위의 코드 참조 이쁘게 꾸미기 -->
+    <div class="prefer_pagination">
+      <!-- 이전 페이지(True일 시) 불러오기 -->
+      {% if posts.has_previous %}
+      <a href="?page=1">맨 앞으로</a>
+      <a href="?page={{posts.previous_page_number}}">이전으로</a>
+      {% endif %}
 
+      <!-- 현재&총 페이지 넘버 불러오기 -->
+      <span>{{posts.number}}</span>
+      <span>/</span>
+      <span>{{posts.paginator.num_pages}}</span>
+
+      <!-- 다음 페이지(True일 시) 불러오기-->
+      {% if posts.has_next %}
+      <a href="?page={{posts.next_page_number}}">다음으로</a>
+      <a href="?page={{posts.paginator.num_pages}}">맨 뒤로</a>
+      {% endif %}
+    </div>>
 </body>
 </html>
