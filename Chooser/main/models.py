@@ -1,5 +1,7 @@
 from django.db import models 
 from django.contrib.auth.models import User
+# 페이지네이션
+# from django.core.paginator import Paginator
 # 회원
 
 
@@ -19,6 +21,10 @@ class Prefer(models.Model):
     prefer_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
     prefer_content = models.TextField()
     # prefer_file =  models.FileField()
+    # like 기능
+    # prefer_like_user
+    # https://tothefullest08.github.io/django/2019/06/11/Django21_relations3_many_to_many/
+    
 
 class Comment_prefer(models.Model):
     com_pre_id = models.AutoField(primary_key=True) # PK
@@ -49,6 +55,7 @@ class Vote(models.Model):
     vote_debate_id = models.ForeignKey(Debate, on_delete=models.CASCADE)# FK(debate_id)
     vote_result_1 = models.IntegerField()# BooleanField(참거짓)으로 구분할 수 있을까? 언제든지 취소 수정 가능?
     vote_result_2 = models.IntegerField()# BooleanField는 Ture, False로 구분 되며 변경 가능합니다.
+
 
 
 

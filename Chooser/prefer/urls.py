@@ -11,6 +11,7 @@ urlpatterns = [
     path('update/<int:prefer_id>', prefer_update, name="prefer_update"),
 
     #댓글 기능
-    path('prefer_create_comment/<int:prefer_id>/', prefer_create_comment, name="prefer_create_comment"),
-    path('prefer_delete_comment/<int:prefer_id>/<int:prefer_comment_id>', prefer_delete_comment, name="prefer_delete_comment"),
+    path('create_comment/<int:prefer_id>/', prefer_create_comment, name="prefer_create_comment"),
+    # path('update_comment/<int:prefer_id>/<int:com_pre_id>', prefer_update_comment, name="prefer_update_comment"),
+    path('delete_comment/<int:prefer_id>/<int:com_pre_id>', prefer_delete_comment, name="prefer_delete_comment"),
 ]
