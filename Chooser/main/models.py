@@ -1,12 +1,16 @@
 from django.db import models 
 from django.contrib.auth.models import User
+<<<<<<< HEAD
 # 페이지네이션
 # from django.core.paginator import Paginator
 # 회원
+=======
+>>>>>>> dev
 
+# 회원
+# User 모델 사용
 
 # 취향 페이지
-
 class Topic(models.Model):
     topic_id = models.AutoField(primary_key=True)# PK
     topic_content = models.TextField()
