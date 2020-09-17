@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chooser - 토론 목록</title>
+
+    <div class="make_debate">
+        <a href="{% url 'debate_create' %}">
+        <div class="plus_btn">
+            <button>글쓰기</button>
+        </div>
+        </a>
+    </div>
+
+
+    {% comment %} bootstrap {% endcomment %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- 상단(로고, 주제) -->
+    <h1>이것! 저것! 둘 중 하나!</h1>
+
+    <!-- 정렬 -->
+    <select>
+        <option>랜덤 순</option>
+        <option>조회 높은 순</option>
+        <option>참여 높은 순</option>
+        <option>최신 순</option>
+        <option>오래된 순</option>
+    </select>
+    
+    <!-- 목록 -->
+    <p>목록입니당</p>
+
+    <div class="container mt-40">
+            <div class="row mt-30">
+                <div class="col-md-4 col-sm-6">
+                    <div class="box2">
+                        <img src="http://bestjquery.com/tutorial/hover-effect/demo193/images/img-1.jpg">
+                        <div class="box-content">
+                            <div class="inner-content">
+                                <h3 class="title">주제가 두 개 들어감</h3>
+                                <span class="post">선택해!</span>
+                                <ul class="icon">
+                                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-link"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+        </div>
+    </div>
+
+
+    {% comment %} 버튼 {% endcomment %}
+    
+    <!-- 페이지네이션 -->
+    <div class="debate_pagination">
+        <!-- 이전 페이지(True일 시) 불러오기 -->
+        {% if posts.has_previous %}
+        <a href="?page=1">맨 앞으로</a>
+        <a href="?page={{posts.previous_page_number}}">이전으로</a>
+        {% endif %}
+  
+        <!-- 현재&총 페이지 넘버 불러오기 -->
+        <span>{{posts.number}}</span>
+        <span>/</span>
+        <span>{{posts.paginator.num_pages}}</span>
+  
+        <!-- 다음 페이지(True일 시) 불러오기-->
+        {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}">다음으로</a>
+        <a href="?page={{posts.paginator.num_pages}}">맨 뒤로</a>
+        {% endif %}
+      </div>>
+</body>
+</html>
