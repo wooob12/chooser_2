@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/prefer_create.css'%}">
     <title>Chooser - 취향소개 글쓰기</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
     <h1>케이크 맛있게 먹는 법!!</h1>
 
     <!-- 제목&내용&버튼 -->
-    <form method="POST" action="">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{prefer_form.as_p}}
         <input type="submit" value="확인">
