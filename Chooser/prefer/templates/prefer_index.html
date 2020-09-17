@@ -80,7 +80,6 @@
             <p class="card-text">{{prefer.prefer_content}}</p>
             <p class="card-text">{{prefer.prefer_date|date:"Y.m.d"}}</p>
           </div>
-          <!-- 자세히보기 - NoReverseMatch 오류 -->
           <div class="card-footer">
             <a href="{% url 'prefer_detail' prefer.prefer_id %}">
               <div class="btn btn-primary">

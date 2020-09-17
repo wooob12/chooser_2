@@ -12,7 +12,7 @@ def debate_index(request):
     all_debate = Debate.objects.all()
     debates = Debate.objects
     debate_list = Debate.objects.all()
-    paginator = Paginator(debate_list, 1)
+    paginator = Paginator(debate_list, 5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     return render(request, 'debate_index.html', {'all_debate':all_debate, 'debates':debates, 'posts':posts})
@@ -37,7 +37,6 @@ def debate_create(request):
 
 def debate_detail(request, debate_id):
     debate = get_object_or_404(Debate, pk=debate_id)
-
     return render(request, 'debate_detail.html',{'debate':debate, 'debate_img1_name1':debate.debate_img1_name1, 'debate_img2_name2':debate.debate_img2_name2})
 
 def debate_create_comment(request, debate_id):
@@ -60,3 +59,43 @@ def debate_delete_comment(request, debate_id, com_deb_id):
 
     else:
         raise PermissionDenied
+
+
+
+
+@login_required(login_url='/login')
+def debate_vote_1(request, vote_id):
+    temp_vote_1 = get_object_or_404(Post, id=vote_id)
+    temp_vote_2 = get_object_or_404(Post, id=vote_id)
+    temp_debate_user_1 = request.user
+    temp_debate_id_1 = Debate.objects.get(pk=debate_id)
+
+    
+
+    if temp_vote.vote_result_1 == 0:
+        temp_vote_1.vote_result_1 -= 1
+        temp_vote_1.save()
+    else:
+        check_vote_1.add(post)
+        temp_vote_1.vote_result_1 += 1
+        temp_vote_1.save()
+
+    return redirect('debate_detail', debate_id)
+
+
+@login_required(login_url='/login')
+def debate_vote_2(request, vote_id):
+    temp_vote_2 = get_object_or_404(Post, id=vote_id)
+    temp_debate_user_2 = request.user
+    temp_debate_id_2 = Debate.objects.get(pk=debate_id)
+
+
+
+    if temp_vote.vote_result_2 == 0:
+        temp_vote.vote_result_2 -= 1
+        temp_vote_2.save()
+    else:
+        temp_vote_2.vote_result_2 += 1
+        temp_vote_2.save()
+
+    return redirect('debate_detail', debate_id)

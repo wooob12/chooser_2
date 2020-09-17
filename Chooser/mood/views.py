@@ -33,6 +33,9 @@ def month(request):
     serializerMood = serializers.serialize('json', filtered_mood)
     return render(request, 'month.html',{ 'serializerMood': serializerMood })
 
+def to_main(request):
+
+    return render(request, 'home.html')
 
 
 # [0][1][2]... 인덱스로 참조
