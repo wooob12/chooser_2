@@ -27,7 +27,7 @@ def my_prefer_index(request):
 @login_required(login_url='/login')
 def prefer_create(request):
     if request.method == "POST":
-        filled_form = PreferForm(request.POST)
+        filled_form = PreferForm(request.POST, request.FILES) # request.FILES 없을 때는 이미지가 따로 들어가지 않아요
         if filled_form.is_valid():
             temp_form = filled_form.save(commit=False)
             temp_form.prefer_member_id = request.user
@@ -58,7 +58,7 @@ def prefer_update(request, prefer_id):
         updated_form = PreferForm(request.POST, instance=my_prefer)
         if updated_form.is_valid():
             updated_form.save()
-            return redirect('prefer_index')
+            return redirect('prefer_detail', prefer_id)
     return render(request, 'prefer_create.html', {'prefer_form':prefer_form})
 
 

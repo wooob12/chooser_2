@@ -1,8 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/prefer_detail.css'%}">
     <title>Chooser - 취향</title>
 </head>
 <body>
@@ -14,6 +16,9 @@
     제목: {{my_prefer.prefer_title}}
     <br>
     작성자: {{my_prefer.prefer_member_id}}
+    <br>
+    {% comment %} 글 사진 {% endcomment %}
+    <img src="{{ my_prefer.prefer_file.url }}" >
     <br>
     <!-- 글 내용 -->
     내용: {{my_prefer.prefer_content}}
@@ -35,7 +40,7 @@
     <!-- create_comment url 문제 -->
     {% if user.is_authenticated %}
         <form method="POST" action="{% url 'prefer_create_comment' my_prefer.prefer_id %}">
-        {% csrf_token %}
+        {% csrf_token %}        
         {{prefer_comment_form}}
         <input type="submit" value="댓글달기!">
         </form>

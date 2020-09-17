@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/debate_index.css'%}">
     <title>Chooser - 토론 목록</title>
 
     <div class="make_debate">
@@ -28,38 +29,35 @@
     <h1>이것! 저것! 둘 중 하나!</h1>
 
     <!-- 정렬 -->
-    <select>
+    <!-- <select>
         <option>랜덤 순</option>
         <option>조회 높은 순</option>
         <option>참여 높은 순</option>
         <option>최신 순</option>
         <option>오래된 순</option>
-    </select>
+    </select> -->
     
     <!-- 목록 -->
-    <p>목록입니당</p>
+    <h3>목록입니당</h3>
+
+    {% for debate in posts %}
 
     <div class="container mt-40">
-            <div class="row mt-30">
-                <div class="col-md-4 col-sm-6">
-                    <div class="box2">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo193/images/img-1.jpg">
-                        <div class="box-content">
-                            <div class="inner-content">
-                                <h3 class="title">주제가 두 개 들어감</h3>
-                                <span class="post">선택해!</span>
-                                <ul class="icon">
-                                    <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                </ul>
-                            </div>
+        <div class="row mt-30">
+            <div class="col-md-4 col-sm-6">
+                <div class="box2">
+                    <img class="left_img" src="{{ debate.debate_img1.url }}" width="40%" height="40%" style="margin-right:30px;">
+                    <img class="right_img" src="{{ debate.debate_img2.url }}" width="40%" height="40%" style="margin-right:30px;">
+                    <div class="box-content">
+                        <div class="inner-content">
+                            <p class="title_debate_01">{{debate.debate_img1_name1}} vs {{debate.debate_img2_name2}}</p>
                         </div>
                     </div>
                 </div>
-              
+            </div>
         </div>
     </div>
-
+    {% endfor %}
 
     {% comment %} 버튼 {% endcomment %}
     
