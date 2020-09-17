@@ -15,13 +15,15 @@ main{
 
 /* navbar */
 #navbar{
-    background-color:#63A6CC;
+    background-color: #63A6CC;
+    
+    border-bottom : solid 2px lightgray;
 
     display: flex;
     justify-content: space-between;
 }
 /* navbar_제목 */
-.title_label{
+.title_label{  /* 로고로 대체 될 예정*/
     /* margin */
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -30,6 +32,7 @@ main{
     /* 정렬 */
     display: flex;
 
+    /* font */
     font-family: 'Lucida Sans';
     color: white;
     font-size: 25px;
@@ -51,5 +54,36 @@ main{
     border-color: black;
     border: none;
 
+    /* 여백 */
+    margin : 2px;
+
+    /* font */
+    color : #63A6CC;
+
     background-color: white;
+}
+/* 메뉴에 해당하는 부분 navbar */
+.sub-navbar{
+    display: table;
+    table-layout: fixed;
+ 
+    background-color: white;
+
+    width: 100%;
+    border-bottom: solid 2px #63A6CC;
+}
+.sub-navbar .sub-content + .sub-content {
+    border-left: 2px solid #63A6CC;
+  }
+.sub-content{
+    display: table-cell;
+
+    height: 5em;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.content-icon, .content-label{
+    color: black;
 }
