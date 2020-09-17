@@ -21,7 +21,7 @@ class Prefer(models.Model):
     prefer_title = models.CharField(max_length=50)
     prefer_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
     prefer_content = models.TextField()
-    # prefer_file =  models.FileField()
+    prefer_file =  models.ImageField(blank=True, upload_to='Img/')
     # like 기능
     # prefer_like_user
     # https://tothefullest08.github.io/django/2019/06/11/Django21_relations3_many_to_many/
@@ -38,16 +38,17 @@ class Comment_prefer(models.Model):
 class Debate(models.Model):
     debate_id = models.AutoField(primary_key=True) # PK
     debate_pre_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
-    debate_img1 = models.ImageField(blank=True)
-    debate_img2 = models.ImageField(blank=True)
+    debate_img1 = models.ImageField(blank=True, upload_to='Img/')
+    debate_img2 = models.ImageField(blank=True, upload_to='Img/')
     debate_img1_name1 = models.CharField(max_length=20)
     debate_img2_name2 = models.CharField(max_length=20)
 
 class Comment_debate(models.Model):
     com_deb_id = models.AutoField(primary_key=True) # PK
     com_deb_member_id = models.ForeignKey(User, on_delete=models.CASCADE) # FK(member_id)
-    com_deb_result = models.CharField
-    com_deb_content = models.ForeignKey(Debate, on_delete=models.CASCADE) # FK(debate_id)
+    com_deb_debate_id = models.ForeignKey(Debate, on_delete=models.CASCADE) # FK(debate_id)
+    com_deb_result = models.CharField(max_length = 1)
+    com_deb_content = models.TextField()
     con_deb_date = models.DateTimeField(auto_now_add=True) # 수정해도 날짜가 안바뀜
 
 class Vote(models.Model):
@@ -72,3 +73,5 @@ class Mood(models.Model):
 # 날짜 모델 변경
 # 투표 결과 정수형으로 한 거 모델 한글에 써놓기
 # 모델에 있는 주석들 다 보기
+
+

@@ -6,12 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mood.css' %}">
     <title>MOOD</title>
 
 </head>
-
 <body>
-
+    <div class="main_logo">
+    <!-- <a href="{% static 'img/Chooser_main_logo.png' %}"></a> -->
+    <p>  <img src="{% static 'Img/Chooser_preview.png' %}">  </p>
+    </div>
     <div class="mood-day">
         <input name="mood-slider" id="slider-fill" type="range" min="0" max="100" step="1" value="50"
             data-highlight="true">

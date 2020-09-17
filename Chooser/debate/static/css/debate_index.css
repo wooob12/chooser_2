@@ -1,0 +1,36 @@
+h1{
+    text-align: center;
+    font-weight: bold;
+    /* 헤드폰트는 배달의민족 한나? */
+    font-family: "Times New Roman";
+    font-size: 6rem;
+    color: black;
+}
+
+h3{
+    text-align: center;
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.title_debate_01{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Times New Roman";
+    font-size: 2rem;
+    color: black;
+}
+
+.container mt-40{
+
+}
+
+.left_img{
+    margin: 0;
+    padding: 0;
+}
+
+.right_img{
+    margin: 0;
+    padding: 0;
+}
