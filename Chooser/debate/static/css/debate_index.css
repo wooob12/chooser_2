@@ -21,12 +21,11 @@ h3{
     color: black;
 }
 
-.container mt-40{
-
-}
 
 .left_img{
-    margin: 0;
+    width: 40%;
+    height: 40%;
+    margin: 30px;
     padding: 0;
 }
 
