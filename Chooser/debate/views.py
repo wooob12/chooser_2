@@ -13,7 +13,7 @@ def debate_index(request):
     paginator = Paginator(debate_list, 5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
-    turn render(request, 'debatse_index.html', {'all_debate':all_debate, 'debates':debates, 'posts':posts})
+    return render(request, 'debatse_index.html', {'all_debate':all_debate, 'debates':debates, 'posts':posts})
 
 def debate_create(request):    
     if request.method == "POST":
