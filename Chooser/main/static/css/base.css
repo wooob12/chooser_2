@@ -14,29 +14,6 @@ main{
 }
 
 /* navbar */
-#navbar{
-    background-color: #63A6CC;
-    
-    border-bottom : solid 2px lightgray;
-
-    display: flex;
-    justify-content: space-between;
-}
-/* navbar_제목 */
-.title_label{  /* 로고로 대체 될 예정*/
-    /* margin */
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 10px;
-
-    /* 정렬 */
-    display: flex;
-
-    /* font */
-    font-family: 'Lucida Sans';
-    color: white;
-    font-size: 25px;
-}
 /* navbar_로그인부분 */
 #login{
     margin-top: 2rem;
@@ -70,20 +47,18 @@ main{
     background-color: white;
 
     width: 100%;
+    border-top: solid 2px #63A6CC;
     border-bottom: solid 2px #63A6CC;
 }
-.sub-navbar .sub-content + .sub-content {
-    border-left: 2px solid #63A6CC;
-  }
+
 .sub-content{
     display: table-cell;
 
-    height: 5em;
+    height: 2em;
 
     text-align: center;
     vertical-align: middle;
-}
 
-.content-icon, .content-label{
+    /* font */
     color: black;
 }
