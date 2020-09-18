@@ -55,8 +55,8 @@ class Vote(models.Model):
     vote_id = models.AutoField(primary_key=True) # PK
     vote_member_id = models.ForeignKey(User, on_delete=models.CASCADE)# FK(member_id)
     vote_debate_id = models.ForeignKey(Debate, on_delete=models.CASCADE)# FK(debate_id)
-    vote_result_1 = models.IntegerField()# BooleanField(참거짓)으로 구분할 수 있을까? 언제든지 취소 수정 가능?
-    vote_result_2 = models.IntegerField()# BooleanField는 Ture, False로 구분 되며 변경 가능합니다.
+    vote_result_1 = models.IntegerField(default=0)# BooleanField(참거짓)으로 구분할 수 있을까? 언제든지 취소 수정 가능?
+    vote_result_2 = models.IntegerField(default=0)# BooleanField는 Ture, False로 구분 되며 변경 가능합니다.
 
 
 class Mood(models.Model):
