@@ -8,8 +8,13 @@
     <title>Chooser - 취향</title>
 </head>
 <body>
+<div class="all_pre_detail">
     <!-- 상단(로고, 주제) -->
+    <a href="{% url 'to_main' %}" class="main_logo_warper">
+        <img src="{% static 'Img/logo.png' %}" class="main_logo">
+    </a>
     <!-- 주제: {{topic_content}} -->
+    <h1>금주의 주제: 라면 끼리는 법!!!!!!</h1>
 
     <!-- 제목 -->
     <br>
@@ -73,3 +78,6 @@
     {% comment %} <br>
     <textarea cols="50" rows="2" name="fulltext" placeholder="댓글을 입력하세요!"></textarea>
     <button>댓글달기</button> {% endcomment %}
+</div>
+</body>
+</html>

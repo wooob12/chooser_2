@@ -1,34 +1,109 @@
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.all{
+html {
+    width:100;
+    height:100;
+    /* position: absolute;
+    margin-right: 10px; */
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    margin: 10px;
     text-align: center;
+    flex-wrap: wrap;
+    align-content: stretch;
 }
 
-.main_logo{
-    width: 438.5px;
-    height: 211.5px;
-}
+/* .all{
+    margin: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+    align-content: stretch;
+    /* position: fixed;
+    left: 20px;
+    top: 50px;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+     */
+
+
+
 
 /* #mood-slider{
     block-size: 100px;
 } */
 
 .mood-slider-wrap{
-    width: 100%;
+    /* opacity: 10%; */
+    border-style: solid;
+    border-width: medium;
+    border-color: #2D74A3;
+    width: 40%;
+    height: 16px ;
+    background-color:#3C9BDB;
+    border-radius: 15px;
+    display: inline-flex;
+    text-align: center;
+    box-sizing : border-box;
 }
 
-.slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 10000px; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+#slider-fill {
+    width: 100%;
+    background-color: transparent;
+    -webkit-appearance: none;
+    
   }
 
+#slider-fill:focus {
+    outline: none;
+  }
+.form-warp{
+    font-size: 0%;
+}
+#some{
+    text-align: center;
+    font-size: 2rem;
+    width: 100px;
+    height: 40px;
+    /* padding: 1px 2px; */
+    margin: 15px;
+    box-sizing: border-box;  
+    border-style: unset;
+}
+
+#result-box-b{
+    text-align: center;
+    font-size: 2rem;
+    width: 90%;
+    height: 40px;
+    /* padding: 1px 2px; */
+    margin: 15px;
+    box-sizing: border-box;  
+    border-style: unset;
+}
+#result-box-b:focus{
+    outline: none;
+}
+
+#content-box{
+    text-align: center;
+    font-size: 2rem;
+    width: 90%;
+    height: 70px;
+    /* padding: 1px 2px; */
+    margin: 15px;
+    box-sizing: border-box;  
+    border-style: unset;
+}
+
+.submit{
+    margin-top: 1px;
+    background-color: none;
+
+
+}
+
+
+
+h1{
+    color: black;
+}
