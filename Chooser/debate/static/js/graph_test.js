@@ -1,5 +1,3 @@
-alert("img_name1"); 
-
 let leftcount = 0;
 let rightcount = 0;
 
@@ -27,7 +25,6 @@ let right_per = 50; //오른쪽
 
 function result_view(){
     result_per();
-    alert(img_name1);
     document.getElementById("result").innerHTML= img_name1 + left_per +"% : " + img_name2 + right_per + "%";
 }
 

@@ -1,15 +1,4 @@
 
-
-h1{
-    text-align: center;
-    font-weight: bold;
-    /* 헤드폰트는 배달의민족 한나? */
-    font-family: "Times New Roman";
-    font-size: 6rem;
-    color: black;
-}
-
-
 @font-face { font-family: 'some'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') 
     format('woff'); 

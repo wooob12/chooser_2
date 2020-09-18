@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/prefer_index.css'%}">
     <!-- Bootstrap core CSS -->
   <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -27,7 +28,7 @@
 
     {% else %}
 
-    <a href="{% url 'join' %}">
+    <a href="{% url 'signup' %}">
         <button>회원가입</button>
     </a>
 
@@ -50,7 +51,7 @@
     
     
     
-    <p>  <img src="{% static 'Img/Chooser_preview.png' %}">  </p>
+    <p>  <img src="{% static 'Img/Chooser_preview.png' %}">  </p> 
     <!-- 상단(로고, 주제) -->
     <h1>케이크 맛있게 먹는 법!!</h1>
 
@@ -66,20 +67,19 @@
     <!-- <p>인기목록입니당</p> -->
     
     <!-- 목록 -->
-    <h4>목록</h4>
+    <h3>목록</h3>
 
     {% for prefer in posts %}
     
     <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="{% static 'Img/Chooser_preview.png' %}" alt="">
+          <img class="card-img-top" src="{{ prefer.prefer_file.url }}" alt="{% static 'Img/Chooser_preview.png' %}">
           <div class="card-body">
             <h4 class="card-title">{{prefer.prefer_member_id}}</h4>
             <p class="card-text">{{prefer.prefer_title}}</p>
             <p class="card-text">{{prefer.prefer_content}}</p>
             <p class="card-text">{{prefer.prefer_date|date:"Y.m.d"}}</p>
           </div>
-          <!-- 자세히보기 - NoReverseMatch 오류 -->
           <div class="card-footer">
             <a href="{% url 'prefer_detail' prefer.prefer_id %}">
               <div class="btn btn-primary">

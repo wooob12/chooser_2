@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import prefer_index, prefer_create, prefer_detail, prefer_delete, prefer_update, prefer_create_comment, prefer_delete_comment
 
 
