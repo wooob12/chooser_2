@@ -1,1 +1,0 @@
-web: gunicorn Chooser.wsgi --log-file -
