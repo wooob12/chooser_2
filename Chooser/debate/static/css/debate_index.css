@@ -81,9 +81,9 @@ h3{
     padding: 0px;
     border: 0px;
     height: 100%;
-    top: 50%;
+    width: 180px;
     left: 50%;
-    transform: translate(-35%); 
+    transform: translate(-30%);
 }
 
 .big_title{

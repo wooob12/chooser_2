@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', mood , name="mood"),
     path('month/', month, name="month"),
     path('to_main/' ,to_main, name="to_main"),
