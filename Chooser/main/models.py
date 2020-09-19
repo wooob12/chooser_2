@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 
 # 회원
 # User 모델 사용
-
+# ㅇㅇ
 # 취향 페이지
 class Topic(models.Model):
     topic_id = models.AutoField(primary_key=True)# PK
