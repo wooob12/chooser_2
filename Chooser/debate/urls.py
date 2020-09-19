@@ -1,4 +1,4 @@
-from django.contrib import admin
+# from django.contrib import admin
 from django.urls import path
 from .views import debate_index, debate_create, debate_detail, debate_create_comment, debate_delete_comment, debate_vote_1, debate_vote_2
 

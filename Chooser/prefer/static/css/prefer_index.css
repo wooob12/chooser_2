@@ -1,8 +1,7 @@
-
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 
-.all_pre_index{
+.all_pre_index {
     text-align: center;
     flex-wrap: wrap;
     align-content: stretch;
@@ -26,11 +25,11 @@ h1 {
     padding-bottom: 20px;
 }
 
-.card-text{
+.card-text {
     overflow: hidden;
 }
 
-.prefer_pagination{
+.prefer_pagination {
     text-align: center;
     font-weight: bold;
     font-family: 'Nanum Gothic', sans-serif;
@@ -43,9 +42,26 @@ h1 {
     margin: 20px;
 }
 
-.big_box{
+/* 7번 이슈 */
+span {}
 
+.big_box {
+    display: inline-flex;
+    width: 400px;
+    margin-left: 10px;
 }
 
-.big_preview_prefer{
+.card-img-top {
+    width: 100px;
+    height: 300px;
+    overflow: hidden;
+    object-fit: none;
+}
+
+.big_preview_prefer {}
+
+.col-lg-3 {}
+
+.card {
+    width: 400px;
 }
