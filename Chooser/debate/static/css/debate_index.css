@@ -1,7 +1,11 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
 .all_deb_index{
     text-align: center;
     flex-wrap: wrap;
-	align-content: stretch;
+    align-content: stretch;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .main_logo {

@@ -16,8 +16,6 @@
     <title>Chooser - 취향목록</title>
 </head>
 <body>
-<div class="all_pre_index">
-    
     {% if user.is_authenticated %}
 
     <a href="{% url 'logout' %}">
@@ -27,28 +25,31 @@
     안녕하세요! {{user}}님!
 
     {% else %}
-
-    <a href="{% url 'signup' %}">
+    <div class="button">
+      <a href="{% url 'signup' %}">
         <button>회원가입</button>
-    </a>
+      </a>
+    <div>
 
-    <a href="{% url 'login' %}">
-        <button>로그인</button>
-    </a>
+    <div class="button">
+      <a href="{% url 'login' %}">
+          <button>로그인</button>
+      </a>
+    </div>
 
     {% endif %}
-    
     <!-- 버튼 -->
     {% if user.is_authenticated %}
     <div class="make_prefer">
         <a href="{% url 'prefer_create' %}">
-        <div class="plus_btn">
-            <button>글쓰기</button>
-        </div>
+          <div class="plus_btn">
+              <button>글쓰기</button>
+          </div>
         </a>
     </div>
     {% endif %}
 
+<div class="all_pre_index">
       <!-- 상단(로고, 주제) -->
     <a href="{% url 'to_main' %}" class="main_logo_warper">
         <img src="{% static 'Img/logo.png' %}" class="main_logo">
@@ -58,21 +59,25 @@
 
     {% for prefer in posts %}
     
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="{{ prefer.prefer_file.url }}" alt="{% static 'Img/Chooser_preview.png' %}">
-          <div class="card-body">
-            <h4 class="card-title">{{prefer.prefer_member_id}}</h4>
-            <p class="card-text">{{prefer.prefer_title}}</p>
-            <p class="card-text">{{prefer.prefer_content}}</p>
-            <p class="card-text">{{prefer.prefer_date|date:"Y.m.d"}}</p>
-          </div>
-          <div class="card-footer">
-            <a href="{% url 'prefer_detail' prefer.prefer_id %}">
-              <div class="btn btn-primary">
-                자세히 보기!
-              </div>
-            </a>
+    <div class="big_box">
+      <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="big_preview_prefer">
+              <img class="card-img-top" src="{{ prefer.prefer_file.url }}" alt="{% static 'Img/Chooser_preview.png' %}">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">{{prefer.prefer_member_id}}</h4>
+              <p class="card-text">{{prefer.prefer_title}}</p>
+              <p class="card-text">{{prefer.prefer_content}}</p>
+              <p class="card-text">{{prefer.prefer_date|date:"Y.m.d"}}</p>
+            </div>
+            <div class="card-footer">
+              <a href="{% url 'prefer_detail' prefer.prefer_id %}">
+                <div class="btn btn-primary">
+                  자세히 보기!
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>

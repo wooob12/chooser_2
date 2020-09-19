@@ -1,7 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 .all_pre_detail{
     text-align: center;
     flex-wrap: wrap;
-	align-content: stretch;
+    align-content: stretch;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .main_logo {
@@ -13,11 +16,24 @@
 h1 {
     text-align: center;
     font-weight: bold;
-    /* 헤드폰트는 배달의민족 한나? */
     font-size: 50px;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     padding-top: 50px;
     padding-bottom: 20px;
+}
+
+.button {
+    margin: 20px;
+}
+
+.img_prefer{
+    border-color:  black;
+    border-width: 3px;
+    border-style: solid;
+    height: 200px;
+    margin-bottom: 450px;
+    padding: 0px;
+    border: 0px;
+    object-fit: cover;
 }
