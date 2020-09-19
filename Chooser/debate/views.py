@@ -10,12 +10,18 @@ from main.models import User, Debate, Comment_debate, Vote
 def debate_index(request):
     all_debate = Debate.objects.all()
     debates = Debate.objects
-    paginator = Paginator(debate_list, 5)
+    debate_list = Debate.objects.all()
+    paginator = Paginator(debate_list, 6)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     turn render(request, 'debatse_index.html', {'all_debate':all_debate, 'debates':debates, 'posts':posts})
 
-def debate_create(request):    
+def my_debate_index(request):
+    my_debate = Debate.objects.filter(debate_member_id=request.user)
+    return render(request, 'debate_index.html', {'my_debate':my_debate})
+
+@login_required(login_url='/login')
+def debate_create(request):
     if request.method == "POST":
       filled_form = DebateForm(request.POST)'all_prefer':all_prefer, s, 'post':posts
         if filled_form.is_valid():
